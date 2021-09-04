@@ -107,6 +107,10 @@
     </li>
     
     <li class="">
+      <a href="https://consubianchi.github.io/docs/complementario-1/">Complementario-01</a>
+    </li>
+    
+    <li class="">
       <a href="https://consubianchi.github.io/docs/markdown/">Ejemplos Markdown</a>
     </li>
     
@@ -116,6 +120,10 @@
     
     <li class="">
       <a href="https://consubianchi.github.io/docs/examen-entrega2/">Entrega 2 - Experimentacion Nº2 y Molde</a>
+    </li>
+    
+    <li class="">
+      <a href="https://consubianchi.github.io/docs/examen-/">Examen Final</a>
     </li>
     
   </ul>
@@ -128,18 +136,585 @@
 <h1 class="title">2 - Mecanizado CNC</h1>
 <div class="content ">
   <!-- raw HTML omitted -->
-<h1 id="a-nametopaejemplos-de-códigos-markdown"><!-- raw HTML omitted --><!-- raw HTML omitted -->Ejemplos de códigos Markdown</h1>
+<h1 id="a-nametopamecanizado-cnc"><!-- raw HTML omitted --><!-- raw HTML omitted -->Mecanizado CNC</h1>
 <h2 id="índice">Índice</h2>
 <ul>
-<li><a href="#headings">Headings</a></li>
-<li><a href="#p%C3%A1rrafos">Párrafos</a></li>
-<li><a href="#citado">Citado</a></li>
-<li><a href="#listas">Listas</a></li>
-<li><a href="#l%C3%ADnea-horizontal">Línea Horizontal</a></li>
-<li><a href="#tabla">Tabla</a></li>
-<li><a href="#c%C3%B3digo">Código</a></li>
-<li><a href="#elementos-e-im%C3%A1genes-en-l%C3%ADnea">Elementos e Imágenes</a></li>
+<li><a href="#que-es-cnc">Que es CNC</a></li>
+<li><a href="#planimetr%C3%ADa-silla">Planimetría Silla</a></li>
+<li><a href="#tutorial-silla-fresia">Tutorial Silla Fresia</a></li>
+<li><a href="#tutorial-asiento">Tutorial Asiento</a></li>
+<li><a href="#galer%C3%ADa-de-im%C3%A1genes">Galería de imágenes</a></li>
 </ul>
+<hr>
+<h2 id="que-es-cnc">Que es CNC</h2>
+<p>CNC es le procedimiento de corte de materiales con una máquina de control numérico por computadora. El proceso de mecanizado CNC interpreta el modelo CAD 3D y traduce los datos a la máquina de CNC. La principal ventaja de este proceso es que el CNC produce piezas que pueden sustituir los prototipos producidos con fabricación aditiva que se pretende utilizar para la producción. El mecanizado CNC es la opción ideal para la creación rápida de prototipos de piezas de metal y plásticas de gran calidad que requieren un grado máximo de precisión, acabado de superficies y propiedades de los materiales.</p>
+<p>Es en la década de los ’50 que se introduce el concepto de Control Numérico (CN) en una fresadora, la cual funcionaba con tarjetas perforadas que contenían los datos a utilizar, para que luego en los ’70 con la creación de las computadoras, el concepto creció a ser control numérico computarizado  y se sentó la base para la tecnología que tenemos hoy.</p>
+<h2 id="cncimgcncjpeg"><img src="/img/CNC.jpeg" alt="CNC"></h2>
+<h2 id="planimetría-silla">Planimetría Silla</h2>
+<p><img src="/img/P1.png" alt="P1">
+<img src="/img/P2.png" alt="P2">
+<img src="/img/P3.png" alt="P3"></p>
+<p>aca iria el iframe</p>
+<hr>
+<h2 id="tutorial-silla-fresia">Tutorial Silla Fresia</h2>
+<p>En este tutorial se mostrara como se prepara el proceso de corte para el Mecanizado CNC. Primero, se mostraran los pasos a seguir para el corte de una de las patas de la silla, pasos que serán aplicables a cualquier otra parte de la misma, y en segundo lugar, se explicaran los pasos para desarrollar los cortes del asiento de la silla.</p>
+<h3 id="paso-1">Paso 1</h3>
+<p>Para comenzar, preparamos la plancha de terciado, la cual será de 1220x1220 mm (primera imágen) y la extruimos 15 mm para darle el grosor necesario (segunda imagen)</p>
+<p><img src="/img/001.png" alt="1"></p>
+<p><img src="/img/002.png" alt="2"></p>
+<h3 id="paso-2">Paso 2</h3>
+<p>En este paso posicionaremos las piezas para el posterior corte de ellas.</p>
+<ul>
+<li>Con el comando <em>Move Copy</em>, seleccionamos la parte exterior de una de las patas y apretamos la opción <em>Create Copy</em> y para luego posicionar la copia sobre la plancha de terciado.</li>
+<li>Una vez listo el paso anterior, nos vamos al comando <em>Modify &gt; Align</em> y seleccionamos la cara sin el calado para luego alinearla con el plano.</li>
+<li>Repetimos el proceso con la parte interior de una de las patas y nuevamente aplicamos el comando de <em>Align</em> a la cara que no contenga el calado.</li>
+<li>Es probable que una de las piezas quede bajo la otra por lo que en la caja de opciones de la operación, tenemos que activar la opción <em>Flip</em></li>
+<li>Una vez que ya tengamos ambas patas alienadas con el plano, moveremos cada una a la plancha de terciado sin que ellas se superpongan entre ellas</li>
+</ul>
+<p><img src="/img/3.png" alt="3"></p>
+<h3 id="paso-3">Paso 3</h3>
+<p>Ahora comenzamos a definir los cortes que hara la CNC. Para esto debemos modificar nuestro modo de trabajo de <em>Design</em> a <em>Manufacture</em></p>
+<ul>
+<li>Una vez en <em>Manufacture</em>, debemos hacer un nuevo <em>Set-up</em></li>
+</ul>
+<p>Se abrirán una seria de pestañas en las cuales debemos seleccionar las diferentes variables que tendrá nuestro proceso</p>
+<ul>
+<li>En este caso vamos a seleccionar la máquina Autodesk, Generic 3-axis</li>
+<li>En la pestaña inicial de opciones que se abrirá, elegimos la orientación <em>Z axis/plane &amp; X axis</em></li>
+<li>En <em>Axis Z</em> seleccionamos la plancha, definiendo nuestro eje Z</li>
+<li>En <em>Axis X</em> seleccionamos el borde superior de la plancha para definir nuestro eje X</li>
+<li>En <em>Origin</em> seleccionamos la opción <em>Stock Box Point</em> y seleccionamos como Box Point la esquina superior que contiene el eje X.</li>
+<li>Vamos a la pestaña de <em>Stock</em> en la misma pestaña de opciones y seleccionamos la opción <em>From Solid</em> y seleccionamos la plancha.</li>
+<li>Por último, volvemos a la pestaña inicial y en <em>Model</em> apretamos <em>Nothing</em> y seleccionamos las piezas que posicionamos en la plancha.</li>
+</ul>
+<p><img src="/img/4.png" alt="4"></p>
+<h3 id="paso-4">Paso 4</h3>
+<p>En este paso vamos a comenzar a definir las trayectorias de los 3 cortes que le pediremos a la CNC que haga para las patas. Se recomienda mantener apagada la plancha durante esta parte para poder seleccionar bien los bordes.</p>
+<p>Para los calados interiores seguiremos los siguientes pasos:</p>
+<ul>
+<li>Con el comando <em>2D Contour</em>, seleccionamos el borde inferior de los calados internos de las patas.</li>
+<li>El programa nos va a solicitar la fresa que utilizaremos, la cual en el caso de este ejercicio, será una de tip <em>Flat End Mill</em> de 6mm de diámetro.</li>
+</ul>
+<p>Hay que tomar en cuenta que la profundidad de corte por pasada no puede superar el 50% del diámetro de la fresadora, ya que sino esto resulta en un corte menos prolijo y una disminución en la vida útil de la fresadora.  Para evitar esto, configurar el corte para que en vez de hacerlo en una sola pasada, haga pasadas de solo 3mm de profundidad, equivalente al 50% del diámetro de la fresa a utilizar.</p>
+<ul>
+<li>En capa del <em>2D Contour</em> creado para el calado y apretamos <em>Edit</em> para volver a sus configuraciones.</li>
+<li>Vamos a ir a la caropeta <em>Passes</em> y bajamos hasta la parte de <em>Multiple Depths</em>, donde aplicaremos 3mm de <em>Maximum Roughiness</em>.</li>
+</ul>
+<p>Al terminar el ultimo paso, podemos ver como ahora hay multiples lineas al rededor del calado que representan cada capa que irá cortando la CNC.</p>
+<p><img src="/img/6.png" alt="6">
+<img src="/img/7.png" alt="7"></p>
+<div>
+    <video 
+    width="100%" 
+    height="450" 
+    autoplay muted loop controls preload>
+    <source src="/img/videocalado.mp4"  type="video/mp4">
+    </video>
+</div>
+<p>Para los calados superiores el proceso es parecido pero debemos comenzar el proceso con un comando diferente.</p>
+<ul>
+<li>Desde la carpeta de comandos <em>2D</em>, seleccionamos <em>2D Pocket</em> y seleccionamos ambos calados.</li>
+<li>Los siguientes pasos son iguales, solo debemos modificar la profundidad de corte a 3mm.</li>
+</ul>
+<p><img src="/img/8.png" alt="8">
+<img src="/img/9.png" alt="9"></p>
+<div>
+    <video 
+    width="100%" 
+    height="450" 
+    autoplay muted loop controls preload>
+    <source src="/img/videopocket.mp4"  type="video/mp4">
+    </video>
+</div>
+<p>Por último, para el corte final del perimetro de las patas los pasos serán iguales a los del calado interior pero tendremos que agregar <em>Tabs</em>, los cuales evitaran que al estar finalizando el corte, la máquina vibre y se vea perjudicado el acabo de la pieza o incluso que esta se rompa.</p>
+<ul>
+<li>Para aplicar los <em>Tabs</em>, en la pestaña de opciones del <em>2D Contour</em> correspondiente al perimetro, iremos a la carpeta de <em>Geometry</em></li>
+<li>Encendemos la opcion de <em>Tabs</em> y ponemos un <em>Tab Width</em> de 6mm, un <em>Tab Height</em> de 3mm y una <em>Tab distance</em> de 350 mm.</li>
+</ul>
+<p><img src="/img/11.png" alt="11">
+Como podemos ver, en la ultima capa de la trayectoria, hay unos pequeños saltos, estos son los <em>Tabs</em> que acabamos de generar.</p>
+<p><img src="/img/13.png" alt="13">
+En esta imagen se ilustra desde una simulación como se vería el corte con los <em>Tabs</em> incluidos.</p>
+<p>
+<link rel="stylesheet" href="/css/hugo-easy-gallery.css" />
+
+<div class="gallery caption-position-bottom caption-effect-slide hover-effect-zoom hover-transition" itemscope itemtype="http://schema.org/ImageGallery">
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc1//001.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc1//001.png" alt="1st" />
+				    </div>
+			      <figcaption>
+		          <p>1st</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc1//001.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc1//002.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc1//002.png" alt="2nd" />
+				    </div>
+			      <figcaption>
+		          <p>2nd</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc1//002.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc1//10.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc1//10.png" alt="10th" />
+				    </div>
+			      <figcaption>
+		          <p>10th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc1//10.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc1//11.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc1//11.png" alt="11th" />
+				    </div>
+			      <figcaption>
+		          <p>11th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc1//11.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc1//13.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc1//13.png" alt="13th" />
+				    </div>
+			      <figcaption>
+		          <p>13th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc1//13.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc1//3.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc1//3.png" alt="3rd" />
+				    </div>
+			      <figcaption>
+		          <p>3rd</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc1//3.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc1//4.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc1//4.png" alt="4th" />
+				    </div>
+			      <figcaption>
+		          <p>4th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc1//4.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc1//5.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc1//5.png" alt="5th" />
+				    </div>
+			      <figcaption>
+		          <p>5th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc1//5.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc1//6.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc1//6.png" alt="6th" />
+				    </div>
+			      <figcaption>
+		          <p>6th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc1//6.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc1//7.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc1//7.png" alt="7th" />
+				    </div>
+			      <figcaption>
+		          <p>7th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc1//7.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc1//8.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc1//8.png" alt="8th" />
+				    </div>
+			      <figcaption>
+		          <p>8th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc1//8.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc1//9.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc1//9.png" alt="9th" />
+				    </div>
+			      <figcaption>
+		          <p>9th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc1//9.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+</div>
+ 
+
+
+
+  
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="/js/load-photoswipe.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+</p>
+<hr>
+<h2 id="tutorial-asiento">Tutorial Asiento</h2>
+<p>Para este tutorial se repetirán pasos del primero, por lo que será más facil.</p>
+<h3 id="paso-1-1">Paso 1</h3>
+<p>Preparamos nuestra plancha de terciado con las mismas dimensiones de antes pero con la diferencia de que se aplicara una extrusión de 9mm y no de 15mm.</p>
+<p><img src="/img/14.png" alt="14"></p>
+<h3 id="paso-2-1">Paso 2</h3>
+<p>Para esta etápa, seguiremos los mismos pasos que para el paso 3 del tutorial anterior.</p>
+<ul>
+<li>Cambiamos nuestro modo de trabajo a <em>Manufacture</em> y hacemos un nuevo <em>Set-up</em></li>
+<li>Seleccionamos la máquina Autodesk, Generic 3-axis</li>
+<li>Elegimos la orientación <em>Z axis/plane &amp; X axis</em></li>
+<li>En <em>Axis Z</em> seleccionamos la plancha, definiendo nuestro eje Z</li>
+<li>En <em>Axis X</em> seleccionamos el borde superior de la plancha para definir nuestro eje X</li>
+<li>En <em>Origin</em> seleccionamos la opción <em>Stock Box Point</em> y seleccionamos como Box Point la esquina superior que contiene el eje X.</li>
+<li>Vamos a la pestaña de <em>Stock</em> en la misma pestaña de opciones y seleccionamos la opción <em>From Solid</em> y seleccionamos la plancha.</li>
+<li>Por último, volvemos a la pestaña inicial y en <em>Model</em> apretamos <em>Nothing</em> y seleccionamos las piezas que posicionamos en la plancha</li>
+</ul>
+<p><img src="/img/15.png" alt="15"></p>
+<h3 id="paso-3-1">Paso 3</h3>
+<p>Ocupamos el comando <em>2D Contour</em>, seleccionamos el borde inferior del asiento y seguimos los mismos pasos anteriores, es importante no olvidar modificar la profundidad de corte.</p>
+<div>
+    <video 
+    width="100%" 
+    height="450" 
+    autoplay muted loop controls preload>
+    <source src="/img/videoasiento1.mp4"  type="video/mp4">
+    </video>
+</div>
+<h3 id="paso-4-1">Paso 4</h3>
+<p>Para que el asiento logre la curva necesaria, debemos generar una seria de cortes.</p>
+<ul>
+<li>Desde la carpeta de comandos <em>2D</em>, seleccionamos <em>2D Trace</em> y seleccionamos una a una las lineas de la pieza</li>
+<li>En las configuraciones, iremos a la carpeta <em>Passes</em> y activamos <em>Stock to leave</em> y colocamos un <em>Radial Stock</em> de 4,5 mm</li>
+</ul>
+<div>
+    <video 
+    width="100%" 
+    height="450" 
+    autoplay muted loop controls preload>
+    <source src="/img/videoasiento2.mp4"  type="video/mp4">
+    </video>
+</div>
+<p>
+
+
+<div class="gallery caption-position-bottom caption-effect-slide hover-effect-zoom hover-transition" itemscope itemtype="http://schema.org/ImageGallery">
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc2//14.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc2//14.png" alt="14th" />
+				    </div>
+			      <figcaption>
+		          <p>14th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc2//14.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc2//16.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc2//16.png" alt="16th" />
+				    </div>
+			      <figcaption>
+		          <p>16th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc2//16.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc2//17.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc2//17.png" alt="17th" />
+				    </div>
+			      <figcaption>
+		          <p>17th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc2//17.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc2//18.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc2//18.png" alt="18th" />
+				    </div>
+			      <figcaption>
+		          <p>18th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc2//18.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+</div>
+ 
+
+
+</p>
+<h2 id="galería">Galería</h2>
+<p>
+
+
+<div class="gallery caption-position-bottom caption-effect-slide hover-effect-zoom hover-transition" itemscope itemtype="http://schema.org/ImageGallery">
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc//001.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc//001.png" alt="1st" />
+				    </div>
+			      <figcaption>
+		          <p>1st</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc//001.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc//002.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc//002.png" alt="2nd" />
+				    </div>
+			      <figcaption>
+		          <p>2nd</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc//002.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc//10.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc//10.png" alt="10th" />
+				    </div>
+			      <figcaption>
+		          <p>10th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc//10.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc//11.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc//11.png" alt="11th" />
+				    </div>
+			      <figcaption>
+		          <p>11th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc//11.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc//13.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc//13.png" alt="13th" />
+				    </div>
+			      <figcaption>
+		          <p>13th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc//13.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc//14.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc//14.png" alt="14th" />
+				    </div>
+			      <figcaption>
+		          <p>14th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc//14.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc//16.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc//16.png" alt="16th" />
+				    </div>
+			      <figcaption>
+		          <p>16th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc//16.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc//17.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc//17.png" alt="17th" />
+				    </div>
+			      <figcaption>
+		          <p>17th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc//17.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc//18.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc//18.png" alt="18th" />
+				    </div>
+			      <figcaption>
+		          <p>18th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc//18.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc//3.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc//3.png" alt="3rd" />
+				    </div>
+			      <figcaption>
+		          <p>3rd</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc//3.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc//4.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc//4.png" alt="4th" />
+				    </div>
+			      <figcaption>
+		          <p>4th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc//4.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc//5.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc//5.png" alt="5th" />
+				    </div>
+			      <figcaption>
+		          <p>5th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc//5.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc//6.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc//6.png" alt="6th" />
+				    </div>
+			      <figcaption>
+		          <p>6th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc//6.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc//7.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc//7.png" alt="7th" />
+				    </div>
+			      <figcaption>
+		          <p>7th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc//7.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc//8.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc//8.png" alt="8th" />
+				    </div>
+			      <figcaption>
+		          <p>8th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc//8.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+				<div class="box">
+				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				    <div class="img" style="background-image: url('https://consubianchi.github.io//img/galcnc//9.png');" >
+				      <img itemprop="thumbnail" src="https://consubianchi.github.io//img/galcnc//9.png" alt="9th" />
+				    </div>
+			      <figcaption>
+		          <p>9th</p>
+			      </figcaption>
+				    <a href="https://consubianchi.github.io//img/galcnc//9.png" itemprop="contentUrl"></a>
+				  </figure>
+				</div>
+</div>
+ 
+
+
+</p>
 
 </div>
 </div>
